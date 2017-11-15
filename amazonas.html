@@ -29,7 +29,9 @@
   </div>
 
 <div class="container">
-  <h1>Check Amazonas Wealth Level:</h1>
+  <h1>Public Wallet Address <span class="glyphicon glyphicon-ok" style="color:green;" aria-hidden="true"></span>:</h1>
+  <h4>0x84045689bCd1Ae312b56C18f878B32Fb2BCC76C4</h4>
+  <h1>Check Amazonas Carbon Stock Level:</h1>
   <h3>Carbon Emission</h3>
     <form id="CarbonContent">
       <div class="form-group">
@@ -38,12 +40,14 @@
             <label for="exampleInputEmail1">Select 1st Year</label>
             <input type="number" class="form-control" name="id" id="record-index"></br>
           </div>
+          <div class="col-sm-6">
+          </div>
         </div>
         <div class="row">
           <div class="col-sm-6">
             <label for="exampleInputEmail1">Select 2nd Year</label>
             <input type="number" class="form-control" name="id" id="record-index2"></br>
-            <input type="button"name="Submit" class="btn btn-default" id="form-click" value="Get Carbon Emission">
+            <input type="button"name="Submit" class="btn btn-default" id="form-click" value="Compare Carbon Emission">
           </div>
         </div>
       </div>
@@ -69,14 +73,32 @@
           <input type="number" class="form-control" name="id" id="forest-record-index2"></br>
         </div>
       </div>
-      <input type="button"name="Submit" class="btn btn-default" id="form-click2" value="Get Deforestation Value">
+      <input type="button"name="Submit" class="btn btn-default" id="form-click2" value="Compare Deforestation Value">
     </div>
   </form>
+
   <div id="forest-output-field">
   </div>
   <div id="forest-output-field2">
   </div>
 
 </div>
+<style>
+div#output-field{
+  font-size: 40px!important;
+}
+div#output-field2{
+  font-size: 40px!important;
+}
+
+div#forest-output-field{
+  font-size: 40px!important;
+}
+
+div#forest-output-field2{
+  font-size: 40px!important;
+}
+</style>
+
 </body>
 </html>
