@@ -46,26 +46,30 @@ window.onload = function() {
           console.error(error);}
     );
 
-    //DEFORESTATION output
-    let forestYear1 = document.getElementById("forest-record-index").value;
-    ForestWealth1.getDeforestationByYear(forestYear1, function(error, result){
-     if(!error)
-          //add result to output-field
-          document.getElementById('forest-output-field').innerHTML = result.slice(-1)[0]  ;
-     else
-         console.error(error);}
+    }
+    document.getElementById("form-click2").onclick = function(){outputForest()};
 
-   );
-   //getting second value
-   let forestYear2 = document.getElementById("forest-record-index2").value;
-   ForestWealth1.getDeforestationByYear(forestYear2, function(error, result){
-    if(!error)
-         //add result to output-field
-         document.getElementById('forest-output-field2').innerHTML = result.slice(-1)[0]  ;
-    else
-        console.error(error);}
-  );
+    function outputForest(){
 
+          //DEFORESTATION output
+          let forestYear1 = document.getElementById("forest-record-index").value;
+          ForestWealth1.getDeforestationByYear(forestYear1, function(error, result){
+           if(!error)
+                //add result to output-field
+                document.getElementById('forest-output-field').innerHTML = result.slice(-1)[0]  ;
+           else
+               console.error(error);}
+
+         );
+         //getting second value
+         let forestYear2 = document.getElementById("forest-record-index2").value;
+         ForestWealth1.getDeforestationByYear(forestYear2, function(error, result){
+          if(!error)
+               //add result to output-field
+               document.getElementById('forest-output-field2').innerHTML = result.slice(-1)[0]  ;
+          else
+              console.error(error);}
+        );
     }
 
 
