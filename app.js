@@ -31,7 +31,7 @@ window.onload = function() {
       ForestWealth1.getCarbonEmissionByYear(carbonYear, function(error, result){
        if(!error)
             //add result to output-field
-            document.getElementById('output-field').innerHTML = "1st Year: " + result.slice(-1)[0] + " mTg C per year"  ;
+            document.getElementById('output-field').innerHTML = "1st Year: " + result.slice(-1)[0] + " Million Tonnes C per year"  ;
        else
            console.error(error);}
 
@@ -41,7 +41,7 @@ window.onload = function() {
      ForestWealth1.getCarbonEmissionByYear(carbonYear2, function(error, result){
       if(!error)
            //add result to output-field
-           document.getElementById('output-field2').innerHTML = "2nd Year: " + result.slice(-1)[0] + ' mTg C per year' ;
+           document.getElementById('output-field2').innerHTML = "2nd Year: " + result.slice(-1)[0] + ' Million Tonnes C per year' ;
       else
           console.error(error);}
     );
