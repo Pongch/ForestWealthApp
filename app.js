@@ -24,14 +24,31 @@ window.onload = function() {
     document.getElementById("form-click").onclick = function(){outputCarbon()};
 
     function outputCarbon(){
+      //chart js
+
       let carbonYear = document.getElementById("record-index").value;
       ForestWealth.getCarbonCreditByYear(carbonYear, function(error, result){
        if(!error)
             //add result to output-field
-            document.getElementById('output-field').innerHTML = result ;
+            document.getElementById('output-field').innerHTML = result.slice(-1)[0]  ;
        else
            console.error(error);}
-     )
+
+     );
+     //getting second value
+     let carbonYear2 = document.getElementById("record-index2").value;
+     ForestWealth.getCarbonCreditByYear(carbonYear2, function(error, result){
+      if(!error)
+           //add result to output-field
+           document.getElementById('output-field2').innerHTML = result.slice(-1)[0]  ;
+      else
+          console.error(error);}
+    );
+
+
     }
 
+
+
 }
+//Chart.js
