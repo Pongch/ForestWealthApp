@@ -18,6 +18,96 @@ web3.eth.contract([{"constant":true,"inputs":[{"name":"year","type":"uint256"}],
 //call Contract's Address- you must set this to a different address if using testRPC
 var ForestWealth1 = ForestWealthDb1.at('0x9c185ed8948d1306211776dc520128c5ebeb5cdc');
 
+function putChart(result){
+  chartOne = Number(result.slice(-1)[0].toString());
+}
+
+function putChart2(result){
+  chartTwo = Number(result.slice(-1)[0].toString());
+  var ctx = document.getElementById("myChart").getContext('2d');
+  let myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: ["1st Year", "2nd Year"],
+          datasets: [{
+              label: '# Carbon Stock Level Change',
+              data: [chartOne, chartTwo],
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 159, 64, 0.2)'
+              ],
+              borderColor: [
+                  'rgba(255,99,132,1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)'
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero:true
+                  }
+              }]
+          }
+      }
+    });
+  }
+
+function putChart3(result){
+  chartThree = Number(result.slice(-1)[0].toString());
+}
+
+function putChart4(result){
+  chartFour = Number(result.slice(-1)[0].toString());
+  var ctx = document.getElementById("myChart2").getContext('2d');
+  let myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: ["1st Year", "2nd Year"],
+          datasets: [{
+              label: '# Deforestation Level Changes',
+              data: [chartThree, chartFour],
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 159, 64, 0.2)'
+              ],
+              borderColor: [
+                  'rgba(255,99,132,1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)'
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero:true
+                  }
+              }]
+          }
+      }
+    });
+}
+
 window.onload = function() {
 
     //CARBON output
@@ -31,7 +121,8 @@ window.onload = function() {
       ForestWealth1.getCarbonEmissionByYear(carbonYear, function(error, result){
        if(!error)
             //add result to output-field
-            document.getElementById('output-field').innerHTML = "1st Year: " + result.slice(-1)[0] + " Million Tonnes C per year"  ;
+            //document.getElementById('output-field').innerHTML = "1st Year: " + result.slice(-1)[0] + " Million Tonnes C per year"
+            putChart(result);
        else
            console.error(error);}
 
@@ -41,12 +132,13 @@ window.onload = function() {
      ForestWealth1.getCarbonEmissionByYear(carbonYear2, function(error, result){
       if(!error)
            //add result to output-field
-           document.getElementById('output-field2').innerHTML = "2nd Year: " + result.slice(-1)[0] + ' Million Tonnes C per year' ;
+           //document.getElementById('output-field2').innerHTML = "2nd Year: " + result.slice(-1)[0] + ' Million Tonnes C per year' ;
+          putChart2(result);
       else
           console.error(error);}
     );
+  }
 
-    }
     document.getElementById("form-click2").onclick = function(){outputForest()};
 
     function outputForest(){
@@ -56,7 +148,8 @@ window.onload = function() {
           ForestWealth1.getDeforestationByYear(forestYear1, function(error, result){
            if(!error)
                 //add result to output-field
-                document.getElementById('forest-output-field').innerHTML = "1st Year: " + result.slice(-1)[0] + " ha per year" ;
+                //document.getElementById('forest-output-field').innerHTML = "1st Year: " + result.slice(-1)[0] + " ha per year" ;
+                putChart3(result);
            else
                console.error(error);}
 
@@ -66,49 +159,13 @@ window.onload = function() {
          ForestWealth1.getDeforestationByYear(forestYear2, function(error, result){
           if(!error)
                //add result to output-field
-               document.getElementById('forest-output-field2').innerHTML = "2nd Year: " + result.slice(-1)[0] + " ha per year" ;
+               //document.getElementById('forest-output-field2').innerHTML = "2nd Year: " + result.slice(-1)[0] + " ha per year" ;
+               putChart4(result);
           else
               console.error(error);}
         );
     }
 
-    var ctx = document.getElementById("myChart").getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
-    }
-});
 
 }
 //Chart.js

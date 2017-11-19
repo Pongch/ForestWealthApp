@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <script src="./web3.min.js"></script>
   <script src="./app.js"></script>
   <title>ForestWealth</title>
@@ -29,7 +30,6 @@
   </div>
 
 <div class="container">
-  <img id="graph" src="https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/23561657_10213902104842448_2455246758507863089_n.jpg?oh=2fe66ab9c9186147a1be4055dfaede08&oe=5A9AE52E">
   <h1>Public Wallet Address <span class="glyphicon glyphicon-ok" style="color:green;" aria-hidden="true"></span>:</h1>
   <h4>0x84045689bCd1Ae312b56C18f878B32Fb2BCC76C4</h4>
   <h1>Check Amazonas Carbon Stock Level:</h1>
@@ -53,7 +53,7 @@
         </div>
       </div>
     </form>
-
+  <canvas id="myChart"></canvas>
   <div id="output-field">
   </div>
   <div id="output-field2">
@@ -82,6 +82,7 @@
   </div>
   <div id="forest-output-field2">
   </div>
+  <canvas id="myChart2"></canvas>
 
 </div>
 <style>
